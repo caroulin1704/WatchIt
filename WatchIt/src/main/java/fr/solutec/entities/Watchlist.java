@@ -1,7 +1,5 @@
 package fr.solutec.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 public class Watchlist {
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
 	@OneToOne
 	private User user;
 	private boolean watched;

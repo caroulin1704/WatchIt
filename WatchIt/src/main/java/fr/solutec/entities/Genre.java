@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 public class Genre {
 	@Id @GeneratedValue
-	long id;
+	private Long id;
 	@Enumerated(EnumType.STRING)
 	private Name name;
 	@Enumerated(EnumType.STRING)

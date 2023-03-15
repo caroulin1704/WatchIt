@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 
 public class Casting {
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
 	@OneToOne
 	private Movie movie;
-	String director;
-	String producer;
-	String screenwriter;
-	String actor1;
-	String actor2;
-	String actor3;
+	private String director;
+	private String producer;
+	private String screenwriter;
+	private String actor1;
+	private String actor2;
+	private String actor3;
 }

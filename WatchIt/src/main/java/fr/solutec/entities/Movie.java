@@ -17,9 +17,9 @@ import lombok.NoArgsConstructor;
 
 public class Movie {
 	@Id @GeneratedValue
-	private long id;
+	private Long id;
 	private String name;
-	private long runTime;
+	private Long runTime;
 	private Date releaseDate;
 	@ManyToOne
 	private Genre genre;

@@ -1,5 +1,9 @@
 package fr.solutec.repository;
 
-public interface WatchlistRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import fr.solutec.entities.Watchlist;
+
+public interface WatchlistRepository extends CrudRepository<Watchlist, Long> {
 
 }

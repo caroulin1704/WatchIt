@@ -1,5 +1,9 @@
 package fr.solutec.repository;
 
-public interface ReviewRepository {
+import org.springframework.data.repository.CrudRepository;
 
+import fr.solutec.entities.Review;
+
+public interface ReviewRepository extends CrudRepository<Review, Review.ReviewId> {
+	
 }
