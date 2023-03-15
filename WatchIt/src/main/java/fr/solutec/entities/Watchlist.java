@@ -3,6 +3,7 @@ package fr.solutec.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -15,8 +16,9 @@ import lombok.NoArgsConstructor;
 @Data @Entity
 
 public class Watchlist {
-	@Id @OneToOne
+	@Id @GeneratedValue
+	private long id;
+	@OneToOne
 	private User user;
-	List<Movie> movies;
-	boolean watched;
+	private boolean watched;
 }

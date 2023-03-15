@@ -1,6 +1,7 @@
 package fr.solutec.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -13,7 +14,9 @@ import lombok.NoArgsConstructor;
 @Data @Entity
 
 public class Casting {
-	@Id @OneToOne
+	@Id @GeneratedValue
+	private long id;
+	@OneToOne
 	private Movie movie;
 	String director;
 	String producer;

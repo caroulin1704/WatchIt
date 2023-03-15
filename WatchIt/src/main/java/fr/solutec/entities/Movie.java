@@ -5,7 +5,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 
 public class Movie {
 	@Id @GeneratedValue
-	long id;
-	String name;
-	long runTime;
-	Date releaseDate;
-	@OneToMany
+	private long id;
+	private String name;
+	private long runTime;
+	private Date releaseDate;
+	@ManyToOne
 	private Genre genre;
 }
