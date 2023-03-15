@@ -1,4 +1,4 @@
-package fr.solutec.watchit;
+package fr.solutec;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

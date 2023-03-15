@@ -18,22 +18,45 @@ public class Genre {
 	@Id @GeneratedValue
 	long id;
 	@Enumerated(EnumType.STRING)
-	String name;
+	private Name name;
 	@Enumerated(EnumType.STRING)
-	String subgenre;
+	private Subgenre subgenre;
 	
 	public enum Name{
-		Independant,
-		Horror,
-		Action,
-		Adventure,
-		Comedy,
-		Mystery,
+		Crime,
+		Experimental,
+		Gothic,
 		Fantasy,
-		Historical,
+		Musical,
 		Romance,
-		SF,
+		Sports,
 		Thriller,
+		Action,
+		Animation,
+		Comedy,
+		Drama,
+		Historical, 
+		Horror,
+		ScienceFiction,
+		Western,
 		
+	}
+	public enum Subgenre{
+		Detective,
+		Noir,
+		Gangster,
+		Heist,
+		UrbanFantasy,
+		DarkFantasy,
+		HighFantasy,
+		Superhero,
+		Psychological,
+		Bollywood,
+		Mockumentary,
+		Melodrama,
+		Political,
+		Teen,
+		Dystopian,
+		Utopian,
 	}
 }
