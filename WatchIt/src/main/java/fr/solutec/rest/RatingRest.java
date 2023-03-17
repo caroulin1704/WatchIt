@@ -1,51 +1,44 @@
 package fr.solutec.rest;
 
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.solutec.entities.Rating;
 import fr.solutec.entities.Review;
-import fr.solutec.repository.ReviewRepository;
+import fr.solutec.repository.RatingRepository;
 
 @RestController
 @CrossOrigin("*")
-public class ReviewRest {
+public class RatingRest {
 	@Autowired
-	private ReviewRepository reviewRepos;
+	private RatingRepository ratingRepos;
 	
-	@GetMapping("allreviews")
-	public Iterable<Review> getAllReviews(){
-		return reviewRepos.findAll();
+	@PostMapping("newRating")
+	public Rating saveRating(@RequestBody Rating r) {
+		return ratingRepos.save(r);
 	}
 	
-	@PostMapping("newReview")
-	public Review saveReview(@RequestBody Review r) {
-		return reviewRepos.save(r);
-	}
-	
-	@DeleteMapping("Review/{id}")
-	public boolean deleteReview(@PathVariable Review.ReviewId id) {
-		Optional<Review> r = reviewRepos.findById(id);
+	@DeleteMapping("Rating/{id}")
+	public boolean deleteRating(@PathVariable Rating.RatingId id) {
+		Optional<Rating> r = ratingRepos.findById(id);
 		if(r.isPresent()) {
-			reviewRepos.deleteById(id);
+			ratingRepos.deleteById(id);
 			return true;
 		}
 		return false;
 	}
 	
-	@PutMapping("Review/{id}")
-	public Review modifReview(@RequestBody Review r, @PathVariable Review.ReviewId id) {
+	@PutMapping("Rating/{id}")
+	public Rating modifRating(@RequestBody Rating r, @PathVariable Rating.RatingId id) {
 		r.setId(id);
-		return reviewRepos.save(r);
+		return ratingRepos.save(r);
 	}
-
 }

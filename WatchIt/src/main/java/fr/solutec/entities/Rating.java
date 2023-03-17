@@ -23,7 +23,7 @@ import lombok.Setter;
 public class Rating {
 	@EmbeddedId
 	private RatingId id;
-	private int grade;
+	private double grade;
 	
 	@Embeddable @NoArgsConstructor @AllArgsConstructor @EqualsAndHashCode
 	public static class RatingId implements Serializable {
