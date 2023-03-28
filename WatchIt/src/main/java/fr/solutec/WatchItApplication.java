@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.solutec.entities.User;
+import fr.solutec.repository.CastingRepository;
 import fr.solutec.repository.MovieRepository;
 import fr.solutec.repository.RatingRepository;
 import fr.solutec.repository.ReviewRepository;
@@ -26,6 +27,8 @@ public class WatchItApplication implements CommandLineRunner {
 	private ReviewRepository reviewRepos;
 	@Autowired
 	private WatchlistRepository watchlistRepos;
+	@Autowired
+	private CastingRepository castingRepos;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(WatchItApplication.class, args);

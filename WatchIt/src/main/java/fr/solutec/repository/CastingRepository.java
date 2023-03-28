@@ -1,5 +1,9 @@
 package fr.solutec.repository;
 
-public interface CastingRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import fr.solutec.entities.Casting;
+
+public interface CastingRepository extends CrudRepository<Casting, Long> {
 
 }
