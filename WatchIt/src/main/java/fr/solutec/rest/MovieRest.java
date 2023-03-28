@@ -10,6 +10,6 @@ import fr.solutec.repository.MovieRepository;
 @CrossOrigin("*")
 public class MovieRest {
 	@Autowired
-	public MovieRepository movieRepos;
-
+	private MovieRepository movieRepos;
+	
 }
