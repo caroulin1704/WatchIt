@@ -51,7 +51,7 @@ public class WatchItApplication implements CommandLineRunner {
 		User u3 = new User(null, "PatB", "Beau", "Patrick", "BEAU");
 		
 		Movie m1 = new Movie(null, "Pride and Prejudice", 127, d.parse("16/09/2005"), Genre.Romance, Subgenre.Adaptation);
-		Casting c1 = new Casting(null, m1, "Joe Wright", "Universal Pictures/StudioCanal", "Deborah Moggach/Emma Thompson", "Keira Knightley", "Matthew Macfadyen", "Rosamund Pike");
+		Casting c1 = new Casting(null, m1,  "Joe Wright", "Universal Pictures/StudioCanal", "Deborah Moggach/Emma Thompson", "Keira Knightley", "Matthew Macfadyen", "Rosamund Pike");
 		Movie m2 = new Movie(null, "Atonement", 123, d.parse("07/09/2007"), Genre.Drama, Subgenre.War);
 		Casting c2 = new Casting(null, m2, "Joe Wright", "Working Title Films/Studiocanal", "Christopher Hampton", "Keira Knightley", "James McAvoy", "Saoirse Ronan");
 		Movie m3 = new Movie(null, "Anna Karenina", 130, d.parse("05/12/2012"), Genre.Drama, Subgenre.Adaptation);
@@ -90,10 +90,11 @@ public class WatchItApplication implements CommandLineRunner {
 		Casting c19 = new Casting(null, m19, "Alain Berbérian", "Téléma Studio Canal+", "Les Nuls", "Alain Chabat", "Dominique Farrugia", "Chantal Lauby");
 		Movie m20 = new Movie(null, "Knock at the Cabin", 100, d.parse("03/02/2023"), Genre.Horror, Subgenre.Thriller);
 		Casting c20 = new Casting(null, m20, "M. Night Shyamalan", "Blinding Edge Pictures", "M. Night Shyamalan", "Dave Bautista", "Jonathan Groff", "Ben Aldridge");
-		
+
 		Stream.of(u1, u2, u3).forEach(u ->{
 			userRepos.save(u); 
 		});
+		
 		Stream.of(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15, m16, m17, m18, m19, m20).forEach(m ->{
 			movieRepos.save(m);
 		});
