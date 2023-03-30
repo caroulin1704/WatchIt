@@ -1,6 +1,8 @@
 package fr.solutec.entities;
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -21,18 +23,16 @@ public class Movie {
 	@Id @GeneratedValue
 	private Long id;
 	private String name;
-	private Long runTime;
+	private int runTime;
 	private Date releaseDate;
 	@Enumerated(EnumType.STRING)
 	private Genre genre;
 	@Enumerated(EnumType.STRING)
 	private Subgenre subgenre;
-	
 	public enum Genre{
 		Crime,
 		Experimental,
 		Gothic,
-		Fantasy,
 		Musical,
 		Romance,
 		Sports,
@@ -40,16 +40,16 @@ public class Movie {
 		Action,
 		Animation,
 		Comedy,
-		Drama,
-		Historical, 
+		Drama, 
 		Horror,
-		ScienceFiction,
 		Western,
 		
 	}
 	public enum Subgenre{
+		Adaptation,
 		Detective,
 		Noir,
+		Thriller,
 		Gangster,
 		Heist,
 		UrbanFantasy,
@@ -64,5 +64,10 @@ public class Movie {
 		Teen,
 		Dystopian,
 		Utopian,
+		War,
+		Scifi,
+		Fantasy,
+		Historical,
+		Period,
 	}
 }
