@@ -13,6 +13,8 @@ import fr.solutec.entities.Casting;
 import fr.solutec.entities.Movie;
 import fr.solutec.entities.Movie.Genre;
 import fr.solutec.entities.Movie.Subgenre;
+import fr.solutec.entities.Rating;
+import fr.solutec.entities.Review;
 import fr.solutec.entities.User;
 import fr.solutec.repository.CastingRepository;
 import fr.solutec.repository.MovieRepository;
@@ -31,8 +33,6 @@ public class WatchItApplication implements CommandLineRunner {
 	private RatingRepository ratingRepos;
 	@Autowired
 	private ReviewRepository reviewRepos;
-	@Autowired
-	private WatchlistRepository watchlistRepos;
 	@Autowired
 	private CastingRepository castingRepos;
 	
@@ -90,6 +90,19 @@ public class WatchItApplication implements CommandLineRunner {
 		Casting c19 = new Casting(null, m19, "Alain Berbérian", "Téléma Studio Canal+", "Les Nuls", "Alain Chabat", "Dominique Farrugia", "Chantal Lauby");
 		Movie m20 = new Movie(null, "Knock at the Cabin", 100, d.parse("03/02/2023"), Genre.Horror, Subgenre.Thriller);
 		Casting c20 = new Casting(null, m20, "M. Night Shyamalan", "Blinding Edge Pictures", "M. Night Shyamalan", "Dave Bautista", "Jonathan Groff", "Ben Aldridge");
+		
+		Review.ReviewId rew1 = new Review.ReviewId(u1, m1);
+		Review r1 = new Review(rew1, "Changed my life for the better");
+		Review.ReviewId rew2 = new Review.ReviewId(u2, m11);
+		Review r2 = new Review(rew2, "Have seen better");
+		Review.ReviewId rew3 = new Review.ReviewId(u3, m20);
+		Review r3 = new Review(rew3, "I am Patrick Beau");
+		Rating.RatingId rat1 = new Rating.RatingId(u1, m1);
+		Rating h1 = new Rating(rat1, 5);
+		Rating.RatingId rat2 = new Rating.RatingId(u2, m11);
+		Rating h2 = new Rating(rat2, 2);
+		Rating.RatingId rat3 = new Rating.RatingId(u3, m20);
+		Rating h3 = new Rating(rat3, 4);
 
 		Stream.of(u1, u2, u3).forEach(u ->{
 			userRepos.save(u); 
@@ -100,6 +113,14 @@ public class WatchItApplication implements CommandLineRunner {
 		});
 		Stream.of(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20).forEach(c ->{
 			castingRepos.save(c);
+		});
+		
+		Stream.of(r1, r2, r3).forEach(r ->{
+			reviewRepos.save(r);
+		});
+		
+		Stream.of(h1, h2, h3).forEach(h ->{
+			ratingRepos.save(h);
 		});
 	}
 
